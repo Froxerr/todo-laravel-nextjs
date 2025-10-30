@@ -4,18 +4,18 @@ export const dynamic = "force-dynamic";
 
 type Ctx = { params: Promise<{ id: string }> };
 
-export async function PATCH(req: Request, ctx: Ctx) {
+export async function PATCH(_req: Request, ctx: Ctx) {
   const { id } = await ctx.params;
-  const body = await req.text();
+  const body = await _req.text();
 
-  return forwardToLaravel(req, `/api/todos/${id}`, {
+  return forwardToLaravel(`/api/todos/${id}`, {
     method: "PATCH",
     headers: { "content-type": "application/json" },
     body,
   });
 }
 
-export async function DELETE(req: Request, ctx: Ctx) {
+export async function DELETE(_req: Request, ctx: Ctx) {
   const { id } = await ctx.params;
-  return forwardToLaravel(req, `/api/todos/${id}`, { method: "DELETE" });
+  return forwardToLaravel(`/api/todos/${id}`, { method: "DELETE" });
 }

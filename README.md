@@ -1,2 +1,6 @@
 # todo-laravel-nextjs
-Laravel API + Next.js
+Full-stack Todo (monorepo): **Laravel API + Next.js UI**
+
+## Structure
+- `backend/` — Laravel (REST JSON API)
+- `frontend/` — Next.js (React UI)
